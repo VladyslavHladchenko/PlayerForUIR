@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Player.VolumeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Player"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="180"
+             x:Name="root">
+    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,0">
+        <Button Command="{Binding ToggleVolumeCommand,ElementName=root}" Margin="5,0">
+            <Image Name="VolumeIcon" Source="{Binding ImagePath, ElementName=root}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20"/>
+        </Button>
+        <Slider x:Name="VolumeSLider" Width="100" Minimum="0" Maximum="100" Value="{Binding Volume,ElementName=root, Mode=TwoWay}"/>
+        <Label Content="{Binding ElementName=VolumeSLider,Path=Value}" ContentStringFormat="{}{0:F1}" Width="40"/>
+    </StackPanel>
+</UserControl>
